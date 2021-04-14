@@ -10,9 +10,23 @@ router.get('/api/courses', (req, res) => {
     Pareil que de faire la ligne du bas
 */
 
+/*
 router.get('/', (req, res) => {
     res.send("Hi, we are now at courses route");
     console.log("yoooo")
+});
+*/
+
+router.get('/', (req, res) => {
+    Course.find()
+        .exec()
+        .then(result => {
+            res.status(200).json(result);
+        })
+        .catch(err => {
+            res.status(500).json({ message: err});
+        });
+
 });
 
 router.get('/1', (req, res) => {
@@ -29,12 +43,17 @@ router.post("/", (req, res) => {
     mycourse
         .save()
         .then(result => {
-            //res.json(result);
-            console.log(result);
+            res.status(201).json({
+                message: "Handling POST request to /api/courses - SUCCESS!",
+                result
+            });
+            //console.log(result);
         })
         .catch(err => {
-            //res.json({ message: err });
-            console.log(err);
+            res.status(500).json({
+                message: err 
+            });
+            //console.log(err);
         });
 });
 
