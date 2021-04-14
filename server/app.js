@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+require("dotenv/config")
 
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
@@ -44,12 +45,12 @@ app.get("/api", (req, res) => {
 console.log("Moogose Status Code if 0 = not connected if 1 = connected")
 console.log(mongoose.connection.readyState);
 
-mongoose.connect("mongodb://user-db:FLAOug1sIBnF6PVq@nodejs-cluster-shard-00-00.ktlpa.mongodb.net:27017,nodejs-cluster-shard-00-01.ktlpa.mongodb.net:27017,nodejs-cluster-shard-00-02.ktlpa.mongodb.net:27017/test?ssl=true&replicaSet=atlas-11fjox-shard-0&authSource=admin&retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true }, () => 
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
     console.log(mongoose.connection.readyState)
 
 );
 
-const port = process.env.PORT || 5123;
+const port = process.env.PORT || 5124;
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`)
