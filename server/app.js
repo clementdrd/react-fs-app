@@ -3,12 +3,12 @@ const app = express();
 const mongoose = require("mongoose");
 require("dotenv/config")
 
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 
 const routeCourses = require("./routes/courses")
-//Midleware
+    //Midleware
 app.use("/api/courses", routeCourses);
 
 app.get("/", (req, res) => {
@@ -45,14 +45,13 @@ app.get("/api", (req, res) => {
 console.log("Moogose Status Code if 0 = not connected if 1 = connected")
 console.log(mongoose.connection.readyState);
 
-mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () => 
+mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true }, () =>
     console.log(mongoose.connection.readyState)
 
 );
 
-const port = process.env.PORT || 5124;
+const port = process.env.PORT || 5125;
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`)
-  })
-  
+})
