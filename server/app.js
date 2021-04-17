@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
+const cors = require("cors");
 require("dotenv/config")
 
 app.use(express.urlencoded({ extended: true }));
@@ -9,6 +10,7 @@ app.use(express.json());
 
 const routeCourses = require("./routes/courses")
     //Midleware
+app.use(cors());
 app.use("/api/courses", routeCourses);
 
 app.get("/", (req, res) => {
@@ -50,7 +52,7 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedT
 
 );
 
-const port = process.env.PORT || 5125;
+const port = process.env.PORT || 5126;
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`)
