@@ -1,7 +1,20 @@
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import axios from 'axios'
+
+const api = axios.create({
+  baseURL: 'http://localhost:1287/api.courses',
+  responseType: "json"
+
+
+
+})
+
 
 function App() {
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -21,5 +34,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

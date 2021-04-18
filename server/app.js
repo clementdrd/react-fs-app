@@ -52,7 +52,7 @@ mongoose.connect(process.env.DB_CONNECTION, { useNewUrlParser: true, useUnifiedT
 
 );
 
-const port = process.env.PORT || 5126;
+const port = process.env.PORT || 1287;
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`)
