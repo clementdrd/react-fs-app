@@ -13,13 +13,17 @@ steps:
 - script: |
     echo Hello, world!
     echo "Hello, World" > toto.txt
-  displayName: 'Run a one-line script'
+  displayName: 'Write text on toto.txt'
 
 - script: echo Hello, world 2!
-  displayName: 'Run a one-line script'
+  displayName: 'Hello world 2'
+
+- script: curl "https://youtube.com"
+  displayName: 'Curl youtube'
 
 - script: |
     ls -l
     echo Add other tasks to build, test, and deploy your project.
+    cat toto.txt
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
