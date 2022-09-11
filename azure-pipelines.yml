@@ -13,7 +13,7 @@ steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
-- script: echo Hello, world!
+- script: echo Hello, world 2!
   displayName: 'Run a one-line script'
 
 - script: |
