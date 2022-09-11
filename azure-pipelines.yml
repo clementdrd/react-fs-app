@@ -10,7 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
+- script: |
+    echo Hello, world!
+    echo Hello, World > toto.txt
   displayName: 'Run a one-line script'
 
 - script: echo Hello, world 2!
